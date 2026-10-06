@@ -1,0 +1,4 @@
+== Suppressed Messages ==
+
+# Add warning and/or information messages here after you have confirmed that they are not really a problem
+# (and add a comment explaining why)

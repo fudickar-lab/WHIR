@@ -1,0 +1,79 @@
+# Builds the IG with SUSHI and the HL7 IG Publisher on every push.
+# The built IG (including qa.html) is attached to each run as the artifact "ig-output".
+# To also publish it on GitHub Pages:
+#   1. Settings > Pages > Source: "GitHub Actions"
+#   2. Settings > Secrets and variables > Actions > Variables: add DEPLOY_PAGES = true
+
+name: Build IG
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ig-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+
+      - name: Install SUSHI and Jekyll
+        run: |
+          npm install -g fsh-sushi
+          gem install jekyll
+
+      - name: Download IG Publisher
+        run: |
+          mkdir -p input-cache
+          curl -L -o input-cache/publisher.jar https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
+
+      - name: Build IG
+        run: java -Xmx4g -jar input-cache/publisher.jar -ig .
+
+      - name: Upload built IG
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ig-output
+          path: output/
+          retention-days: 30
+
+      - name: Prepare Pages upload
+        if: github.ref == 'refs/heads/main' && vars.DEPLOY_PAGES == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output/
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && vars.DEPLOY_PAGES == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

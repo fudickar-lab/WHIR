@@ -1,0 +1,144 @@
+# SUSHI configuration, see https://fshschool.org/docs/sushi/configuration/
+
+id: fudickar-lab.wearableon.profile
+canonical: https://fudickar-lab.github.io/WearableOn_5RHIF_Profile
+name: WearableOn5RHIFProfile
+title: Wearable IMU Data Implementation Guide
+description: Representation of wearable inertial measurement unit (IMU) recordings in FHIR R5, from device and sensor metadata through raw data to activity labels, with use cases for machine learning and automatic geriatric assessment at home.
+status: draft
+version: 0.1.0
+fhirVersion: 5.0.0
+copyrightYear: 2024+
+releaseLabel: ci-build
+
+publisher:
+  name: IMU Wearable R5 Publisher
+
+dependencies:
+  # PHD IG, defines the ContinuaDeviceIdentifiers code system
+  hl7.fhir.uv.phd: 2.0.0
+
+menu:
+  Home: index.html
+  Artifacts: artifacts.html
+
+instanceOptions:
+  manualSliceOrdering: true
+
+# Artifacts page sections. Examples are grouped by use case (input/fsh/examples/use-case-1 and use-case-2).
+groups:
+  Profiles:
+    name: Profiles
+    description: "Profiles for IMU devices, sensor placement, raw data, activity labels and the geriatric assessment."
+    resources:
+      - StructureDefinition/imu-sensor-placement
+      - StructureDefinition/geriatric-exercise-care-plan
+      - StructureDefinition/imu-device-metric
+      - StructureDefinition/imu-sensor-device
+      - StructureDefinition/geriatric-assessment-report
+      - StructureDefinition/activity-label-observation
+      - StructureDefinition/long-raw-sensor-modality-observation
+      - StructureDefinition/geriatric-exercise-prescription
+  Extensions:
+    name: Extensions
+    description: "Extensions for sensor placement and activity label provenance."
+    resources:
+      - StructureDefinition/body-structure-attachment-method
+      - StructureDefinition/body-structure-placement-qualifier
+      - StructureDefinition/observation-annotation-confidence
+      - StructureDefinition/observation-annotation-provenance
+  Terminology:
+    name: Terminology
+    description: "Code systems and value sets."
+    resources:
+      - CodeSystem/placement-qualifier-cs
+      - CodeSystem/attachment-method-cs
+      - CodeSystem/har-activity-labels-cs
+      - CodeSystem/geriatric-assessment-labels-cs
+      - CodeSystem/adl-labels-cs
+      - CodeSystem/annotation-provenance-cs
+      - CodeSystem/sensor-modality-cs
+      - CodeSystem/sensor-axis-cs
+      - ValueSet/imu-sensor-device-categories
+      - ValueSet/imu-sensor-types
+      - ValueSet/har-body-locations
+      - ValueSet/placement-qualifier
+      - ValueSet/imu-device-metric-type
+      - ValueSet/attachment-method
+      - ValueSet/har-activity-labels
+      - ValueSet/geriatric-assessment-labels
+      - ValueSet/adl-labels
+      - ValueSet/activity-labels
+      - ValueSet/annotation-provenance
+      - ValueSet/sensor-modality
+      - ValueSet/sensor-axis
+      - ValueSet/imu-sensor-units
+  UseCase1Examples:
+    name: Use case 1 examples
+    description: "Training data for machine learning: a lab recording session with a MetaMotionS sensor and a smartphone, and the activity labels for it."
+    resources:
+      - BodyStructure/uc1-004-body-structure-dominant-wrist-watch-strap
+      - BodyStructure/uc1-003-body-structure-dominant-hand
+      - BodyStructure/uc1-002-body-structure-right-pocket
+      - BodyStructure/uc1-001-body-structure-lumbar-vertebra
+      - DeviceDefinition/uc1-002-monitoring-device-definition
+      - DeviceDefinition/uc1-003-computer-device-definition
+      - DeviceDefinition/uc1-004-sensor-definition
+      - DeviceDefinition/uc1-001-smartphone-device-definition
+      - DeviceMetric/uc1-002-mms-sensor-accelerometer-device-metric
+      - DeviceMetric/uc1-001-samsung-phone-accelerometer-device-metric
+      - Device/uc1-001-label-annotation-software-on-device
+      - Device/uc1-005-huawei-phone
+      - Device/uc1-002-mms-accelerometer-sensor
+      - Device/uc1-002-mms-sensor
+      - Device/uc1-003-all-devices
+      - Device/uc1-001-samsung-phone
+      - Device/uc1-001-samsung-accelerometer-sensor
+      - DocumentReference/uc1-002-csv-raw-sensor-data-of-mms
+      - DocumentReference/uc1-001-csv-raw-sensor-data-of-samsung
+      - Observation/uc1-all-observations
+      - Observation/uc1-observation-accelerometer-raw-data-from-mms
+      - Observation/uc1-observation-accelerometer-raw-data-from-samsung
+      - Observation/uc1-001-tug-observation-label-from-software
+      - Observation/uc1-003-walking-bout-1-observation-label-from-software
+      - Observation/uc1-004-walking-bout-2-observation-label-from-software
+      - Observation/uc1-002-walking-observation-label-from-software
+      - Patient/uc1-001-patient
+  UseCase2Examples:
+    name: Use case 2 examples
+    description: "Automatic geriatric assessment at home: the recording session, TUG and 30-second chair stand results, progress note, frailty finding and Otago exercise programme."
+    resources:
+      - BodyStructure/uc2-001-body-structure-lumbar-vertebra
+      - BodyStructure/uc2-002-body-structure-right-pocket
+      - CarePlan/uc2-001-careplan-exercises
+      - Condition/uc2-001-geriatric-conclusion-condition
+      - DeviceDefinition/uc2-002-monitoring-device-definition
+      - DeviceDefinition/uc2-003-computer-device-definition
+      - DeviceDefinition/uc2-004-sensor-definition
+      - DeviceDefinition/uc2-001-smartphone-device-definition
+      - DeviceMetric/uc2-002-mms-sensor-accelerometer-device-metric
+      - DeviceMetric/uc2-001-samsung-phone-accelerometer-device-metric
+      - Device/uc2-001-software-on-device
+      - Device/uc2-002-mms-accelerometer-sensor
+      - Device/uc2-002-mms-sensor
+      - Device/uc2-003-all-devices
+      - Device/uc2-001-samsung-phone
+      - Device/uc2-001-samsung-accelerometer-sensor
+      - DiagnosticReport/uc2-001-geriatric-progress-note
+      - DocumentReference/uc2-002-csv-raw-sensor-data-of-mms
+      - DocumentReference/uc2-001-csv-raw-sensor-data-of-samsung
+      - Encounter/uc2-001-session-encounter
+      - Encounter/uc2-001-sub-session-encounter-home
+      - Location/uc2-001-patients-home-location
+      - Observation/uc2-002-30CST-result-of-software-observation
+      - Observation/uc2-all-observations
+      - Observation/uc2-observation-metric-data-activity-level
+      - Observation/uc2-observation-accelerometer-raw-data-from-mms
+      - Observation/uc2-observation-accelerometer-raw-data-from-samsung
+      - Observation/uc2-001-tug-result-of-software-observation
+      - Observation/uc2-005-walking-bout-1-observation-label-from-software
+      - Observation/uc2-006-walking-bout-2-observation-label-from-software
+      - Patient/uc2-001-patient
+      - Practitioner/uc2-987654321
+      - Practitioner/uc2-123456732
+      - ServiceRequest/uc2-001-otago-knee-extension-prescription

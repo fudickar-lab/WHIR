@@ -4,7 +4,7 @@ Title: "TUG Label from Annotation Software (UC1)"
 Description: "Timed Up and Go (TUG) result from the annotation software on the device. The duration is computed from the accelerometer data without human review."
 Usage: #example
 * id                                                   = "uc1-001-tug-observation-label-from-software"
-* identifier.system                                    = "https://fudickar-lab.github.io/WearableOn_5RHIF_Profile/sid/recording-session"
+* identifier.system                                    = "https://fudickar-lab.github.io/WHIR/sid/recording-session"
 * identifier.value                                     = "session-2024-07-01-001" // recording session
 * status                                               = #final
 * category                                             = $observation-category#activity "Activity"

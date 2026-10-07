@@ -1,4 +1,4 @@
-# WearableOn_5RHIF_Profile
+# WHIR (Wearable Health Interoperable Records) Implementation Guide
 
 FHIR R5 implementation guide for wearable IMU data, written in FHIR Shorthand (FSH) and built with SUSHI and the HL7 IG Publisher.
 
@@ -30,7 +30,7 @@ Run `_updatePublisher.bat` (or `.sh`) once to download the IG Publisher, then `_
 
 `.github/workflows/build-ig.yml` builds the IG on GitHub Actions after every push to `main` (and for pull requests). The built IG, including the validation report `qa.html`, can be downloaded from each run under "Artifacts" (`ig-output`).
 
-To publish it on GitHub Pages at the canonical URL https://fudickar-lab.github.io/WearableOn_5RHIF_Profile/:
+To publish it on GitHub Pages at the canonical URL https://fudickar-lab.github.io/WHIR/:
 
 1. Settings > Pages > Source: "GitHub Actions"
 2. Settings > Secrets and variables > Actions > Variables: add `DEPLOY_PAGES` with the value `true`

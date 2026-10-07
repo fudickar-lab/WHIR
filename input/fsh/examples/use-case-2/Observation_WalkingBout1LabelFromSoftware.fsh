@@ -4,7 +4,7 @@ Title: "Walking Bout 1 Label from Analysis Software (UC2)"
 Description: "First of two short walking bouts in the home assessment session, recorded between the TUG and 30CST tests and not part of either. As in use case 1, a repeated activity is stored as one ActivityLabelObservation per occurrence."
 Usage: #example
 * id                    = "uc2-005-walking-bout-1-observation-label-from-software"
-* identifier.system     = "https://fudickar-lab.github.io/WearableOn_5RHIF_Profile/sid/recording-session"
+* identifier.system     = "https://fudickar-lab.github.io/WHIR/sid/recording-session"
 * identifier.value      = "uc2-001-sub-session-encounter-home" // same as the id of the sub-session encounter
 * status                = #final
 * category              = $observation-category#activity "Activity"

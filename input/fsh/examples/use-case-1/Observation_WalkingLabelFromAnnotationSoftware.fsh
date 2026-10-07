@@ -4,7 +4,7 @@ Title: "Walking Label from Annotation Software (UC1)"
 Description: "Third walking bout in the same session (15:23 to 15:30). Labeled automatically by the software on the device and checked by a human annotator after the session."
 Usage: #example
 * id                                                   = "uc1-002-walking-observation-label-from-software"
-* identifier.system                                    = "https://fudickar-lab.github.io/WearableOn_5RHIF_Profile/sid/recording-session"
+* identifier.system                                    = "https://fudickar-lab.github.io/WHIR/sid/recording-session"
 * identifier.value                                     = "session-2024-07-01-001" // recording session
 * status                                               = #final
 * category                                             = $observation-category#activity "Activity"

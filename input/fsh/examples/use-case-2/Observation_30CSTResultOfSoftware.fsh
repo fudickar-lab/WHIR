@@ -4,7 +4,7 @@ Title: "30CST Result from Analysis Software (UC2)"
 Description: "Result of the 30-second chair stand test (sit to stand frequency in 30 seconds) computed by the analysis software during the home assessment, without human review."
 Usage: #example
 * id                                                   = "uc2-002-30CST-result-of-software-observation"
-* identifier.system                                    = "https://fudickar-lab.github.io/WearableOn_5RHIF_Profile/sid/recording-session"
+* identifier.system                                    = "https://fudickar-lab.github.io/WHIR/sid/recording-session"
 * identifier.value                                     = "uc2-001-sub-session-encounter-home" // same as the id of the sub-session encounter
 * status                                               = #final
 * category                                             = $observation-category#activity "Activity"

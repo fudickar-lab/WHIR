@@ -10,7 +10,7 @@ Title: "Recording Session (Use Case 1) (UC1)"
 Description: "One data acquisition session in the lab, grouping the raw accelerometer data of both sensor devices under one session identifier."
 Usage: #example
 * id                    = "uc1-all-observations"
-* identifier.system     = "https://fudickar-lab.github.io/WearableOn_5RHIF_Profile/sid/recording-session"
+* identifier.system     = "https://fudickar-lab.github.io/WHIR/sid/recording-session"
 * identifier.value      = "session-2024-07-01-001"
 * status                = #final
 * category              = $observation-category#activity "Activity"

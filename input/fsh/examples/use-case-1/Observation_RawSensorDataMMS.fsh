@@ -8,7 +8,7 @@ Title: "Observation of Raw Data from MMS Sensor (UC1)"
 Description: "Raw accelerometer data from the MMS sensor. Similar to PhdBaseObservation/DeviceMetricObservationProfile in the PHD IG."
 Usage: #example
 * id                       = "uc1-observation-accelerometer-raw-data-from-mms"
-* identifier.system        = "https://fudickar-lab.github.io/WearableOn_5RHIF_Profile/sid/recording-session"
+* identifier.system        = "https://fudickar-lab.github.io/WHIR/sid/recording-session"
 * identifier.value         = "session-2024-07-01-001" // recording session
 * status                   = #preliminary // data may be incomplete or unverified
 * category                 = $observation-category#activity "Activity" // TODO: or procedure?

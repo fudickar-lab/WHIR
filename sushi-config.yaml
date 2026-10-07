@@ -1,9 +1,9 @@
 # SUSHI configuration, see https://fshschool.org/docs/sushi/configuration/
 
-id: fudickar-lab.wearableon.profile
-canonical: https://fudickar-lab.github.io/WearableOn_5RHIF_Profile
-name: WearableOn5RHIFProfile
-title: Wearable IMU Data Implementation Guide
+id: fudickar-lab.whir
+canonical: https://fudickar-lab.github.io/WHIR
+name: WHIR
+title: WHIR (Wearable Health Interoperable Records) Implementation Guide
 description: Representation of wearable inertial measurement unit (IMU) recordings in FHIR R5, from device and sensor metadata through raw data to activity labels, with use cases for machine learning and automatic geriatric assessment at home.
 status: draft
 version: 0.1.0

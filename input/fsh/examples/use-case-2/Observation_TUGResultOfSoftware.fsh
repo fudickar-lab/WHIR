@@ -4,7 +4,7 @@ Title: "TUG Result from Analysis Software (UC2)"
 Description: "Timed Up and Go (TUG) result computed by the analysis software during the home assessment, without human review."
 Usage: #example
 * id                                                   = "uc2-001-tug-result-of-software-observation"
-* identifier.system                                    = "https://fudickar-lab.github.io/WearableOn_5RHIF_Profile/sid/recording-session"
+* identifier.system                                    = "https://fudickar-lab.github.io/WHIR/sid/recording-session"
 * identifier.value                                     = "uc2-001-sub-session-encounter-home" // same as the id of the sub-session encounter
 * status                                               = #final
 * category                                             = $observation-category#activity "Activity"

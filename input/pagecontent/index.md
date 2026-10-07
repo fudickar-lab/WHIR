@@ -17,8 +17,8 @@ This implementation guide describes how to represent such recordings in FHIR R5,
 ### Overview
 
 <figure>
-  <img src="overview.svg" alt="Core profiles of this guide and the references between them" style="width:100%;max-width:820px"/>
-  <figcaption>Core profiles for devices, placement, raw data and activity labels, used in both use cases.</figcaption>
+  <img src="overview.svg" alt="Profiles of this guide and the references between them" style="width:100%;max-width:1110px"/>
+  <figcaption>Profiles of this guide and how they reference each other. The core profiles are used in both use cases; the highlighted area contains the profiles for the geriatric assessment (use case 2).</figcaption>
 </figure>
 
 ### Profiles
@@ -34,12 +34,8 @@ This implementation guide describes how to represent such recordings in FHIR R5,
 
 ### Geriatric assessment (use case 2)
 
-Three more profiles cover what happens after a home assessment. The test results (e.g. TUG, 30-second chair stand) are Activity Label Observations. A report interprets them, the resulting finding is recorded as a Condition, and a care plan with individual exercise prescriptions addresses it.
+Three more profiles cover what happens after a home assessment. The test results (e.g. TUG, 30-second chair stand) are Activity Label Observations. A report interprets them, the resulting finding is recorded as a Condition, and a care plan with individual exercise prescriptions addresses it (highlighted area in the overview above).
 
-<figure>
-  <img src="overview-geriatric.svg" alt="Geriatric assessment profiles and the references between them" style="width:100%;max-width:820px"/>
-  <figcaption>Profiles for the geriatric assessment use case.</figcaption>
-</figure>
 
 | Profile | Based on | Purpose |
 |---|---|---|

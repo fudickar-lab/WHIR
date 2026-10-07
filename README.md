@@ -1,4 +1,4 @@
-# WHIR (Wearable Health Interoperable Records) Implementation Guide
+# WHIR (Wearable Health Interoperable Recordings) Implementation Guide
 
 FHIR R5 implementation guide for wearable IMU data, written in FHIR Shorthand (FSH) and built with SUSHI and the HL7 IG Publisher.
 

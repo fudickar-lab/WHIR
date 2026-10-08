@@ -34,6 +34,7 @@ device names the annotation software, but not whether a human was involved. This
 
 // Annotation software that produced the label
 * device 1..1 MS
+* device only Reference(Device)
 
 // Confidence is only meaningful for algorithm-generated or semi-automated labels,
 // a label set by a human usually has neither extension

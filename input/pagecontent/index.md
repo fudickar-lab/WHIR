@@ -18,11 +18,11 @@ This first version covers wearable inertial measurement units (IMUs) with accele
 
 ### Overview
 
-The model behind this guide was first developed independently of FHIR, based on the metadata reported in the reviewed HAR datasets. It describes who is recorded and by whom, the recording session and its context, the devices and sensors with their configuration and placement, the measurements, and their evaluation.
+The model behind this guide was first developed independently of FHIR, based on the metadata reported in the reviewed HAR datasets. It describes who is recorded and by whom, the recording session and its context, the devices and sensors with their configuration and placement, the measurements and their annotations, the evaluation, and the clinical context such as a planned intervention.
 
 <figure>
-  <img src="dim-overview.svg" alt="Information model for wearable sensor data" style="width:100%;max-width:1110px"/>
-  <figcaption>Information model for wearable sensor data, developed independently of FHIR. Colors distinguish users and user data, recording sessions, devices and sensors, measurements and evaluation.</figcaption>
+  <a href="dim-overview.png"><img src="dim-overview.png" alt="Information model for wearable sensor data with the attributes of each class" style="width:100%;max-width:1110px"/></a>
+  <figcaption>Information model for wearable sensor data, developed independently of FHIR, with the attributes of each class. Attributes already shown as associations are omitted. Colors distinguish users and user data, recording sessions, devices and sensors, measurements, evaluation and clinical context. Click the figure to open it at full size.</figcaption>
 </figure>
 
 This information model was then mapped to FHIR R5 resources:
@@ -104,7 +104,7 @@ The focus lies on the metadata of the different IMU sensors and their placement,
 
 <figure>
   <img src="use-case-1-instances.png" alt="Instance diagram for use case 1" style="width:100%;max-width:1110px"/>
-  <figcaption>Instance diagram for use case 1: devices, device metrics, patient, raw-data observations with referenced CSV files, body structures and activity label observations.</figcaption>
+  <figcaption>Instance diagram for use case 1: the two raw-data observations with their CSV files, sensor placements and device metrics, the devices and device definitions behind them, and the activity labels set by the annotation software. The four label observations are shown as one box; the Patient is left out.</figcaption>
 </figure>
 
 #### Use case 2: Automated geriatric assessment at home
@@ -118,7 +118,7 @@ Automated geriatric assessments are performed in the home setting. The subject w
 
 <figure>
   <img src="use-case-2-instances.png" alt="Instance diagram for use case 2" style="width:100%;max-width:1110px"/>
-  <figcaption>Instance diagram for use case 2: home-health encounter, devices, raw-data observations, TUG and 30-second chair stand results from the annotation software, Geriatric Assessment Report, Condition and Geriatric Exercise Care Plan.</figcaption>
+  <figcaption>Instance diagram for use case 2: raw-data observations (devices, placements and CSV files as in use case 1), TUG and 30-second chair stand results from the analysis software, Geriatric Assessment Report, Condition, home-health encounters and the Geriatric Exercise Care Plan with its prescription. The Patient is left out.</figcaption>
 </figure>
 
 ### Citing this guide

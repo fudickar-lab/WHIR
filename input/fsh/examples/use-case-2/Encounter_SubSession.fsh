@@ -16,10 +16,10 @@ Usage: #example
 // * careTeam                 = Reference(001-example-careTeam)
 * partOf                      = Reference(uc2-001-session-encounter)
 * participant[0].type         = $v3-ParticipationType#PPRF
-* participant[=].period.start = "2024-07-01T09:00:00+01:00"
-* participant[=].period.end   = "2024-07-01T15:30:00+01:00"
+* participant[=].period.start = "2024-07-01T09:00:00+02:00"
+* participant[=].period.end   = "2024-07-01T15:30:00+02:00"
 * participant[=].actor        = Reference(uc2-002-mms-sensor)
 * participant[+].actor        = Reference(uc2-123456732) "Max Mustermann, M.D."
-* actualPeriod.start          = "2024-07-01T09:00:00+01:00"
-* actualPeriod.end            = "2024-07-01T15:30:00+01:00"
+* actualPeriod.start          = "2024-07-01T09:00:00+02:00"
+* actualPeriod.end            = "2024-07-01T15:30:00+02:00"
 * location.location           = Reference(uc2-001-patients-home-location) "Client's home"

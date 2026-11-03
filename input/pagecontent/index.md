@@ -2,6 +2,8 @@
 This guide is a draft (version 0.1.0) and is still changing. It accompanies the paper <em>Leveraging Fast Healthcare Interoperability Resources (FHIR) for the Exchange of Wearable Inertial Sensor Data: Design and Development Study</em> (see <a href="#citing-this-guide">Citing this guide</a>).
 </div>
 
+**Author:** Gabriela Ciortuz, Institute of Medical Informatics, University of Lübeck
+
 ### Scope
 
 Wearables record health-related data continuously and outside the clinic, often for hours or days. These recordings are usually stored in proprietary or ad-hoc files, and the information needed to reuse them (which sensor, where on the body, how it was configured, and what happened during the recording) is easily lost. Electronic health records cannot interpret them.
@@ -36,7 +38,7 @@ This information model was then mapped to FHIR R5 resources:
 
 <figure>
   <img src="overview.svg" alt="Profiles of this guide and the references between them" style="width:100%;max-width:1110px"/>
-  <figcaption>The 8 profiles of this guide and how they reference each other. The core profiles are used in both use cases; the highlighted area contains the profiles for the geriatric assessment.</figcaption>
+  <figcaption>The profiles of this guide and how they reference each other. The core profiles are used in both use cases; the highlighted area contains the profiles for the geriatric assessment.</figcaption>
 </figure>
 
 | Profile | Based on | Purpose |
@@ -45,12 +47,13 @@ This information model was then mapped to FHIR R5 resources:
 | [IMU Device Metric](StructureDefinition-imu-device-metric.html) | DeviceMetric | Sensor modality, unit, sampling rate and calibration |
 | [IMU Sensor Placement](StructureDefinition-imu-sensor-placement.html) | BodyStructure | Where the sensor was worn and how it was attached |
 | [Long Raw Sensor Modality Observation](StructureDefinition-long-raw-sensor-modality-observation.html) | Observation | One recorded signal, referencing the raw data file |
-| [Activity Label Observation](StructureDefinition-activity-label-observation.html) | Observation | A labeled time interval of the raw data (ground truth, classifier output or test result) |
+| [Activity Label Observation](StructureDefinition-activity-label-observation.html) | Observation | A labeled time interval of the raw data (ground truth or classifier output) |
+| [Functional Assessment Observation](StructureDefinition-functional-assessment-observation.html) | Observation | Result of a standardised functional test computed from the raw data, e.g. TUG time in seconds |
 {: .grid}
 
 ### Geriatric assessment
 
-Three more profiles cover what happens after a home assessment. The test results (e.g. TUG, 30-second chair stand) are Activity Label Observations. A report interprets them, the resulting finding is recorded as a Condition, and a care plan with individual exercise prescriptions addresses it (highlighted area in the profile diagram above).
+Three more profiles cover what happens after a home assessment. The test results (e.g. TUG, 30-second chair stand) are Functional Assessment Observations. A report interprets them, the resulting finding is recorded as a Condition, and a care plan with individual exercise prescriptions addresses it (highlighted area in the profile diagram above).
 
 
 | Profile | Based on | Purpose |
@@ -79,12 +82,16 @@ SNOMED CT, LOINC, UCUM and ISO/IEEE 11073 codes are used where a suitable concep
 - **Sensor placement:** [HAR Body Locations](ValueSet-har-body-locations.html), [Placement Qualifier](ValueSet-placement-qualifier.html), [Attachment Method](ValueSet-attachment-method.html)
 - **Device and signal:** [IMU Sensor Types](ValueSet-imu-sensor-types.html), [IMU Sensor Device Categories](ValueSet-imu-sensor-device-categories.html), [IMU Device Metric Type](ValueSet-imu-device-metric-type.html), [Sensor Modality](ValueSet-sensor-modality.html), [Sensor Axis](ValueSet-sensor-axis.html), [IMU Sensor Units](ValueSet-imu-sensor-units.html)
 - **Activity labels:** [Activity Labels](ValueSet-activity-labels.html), combining [HAR Activity Labels](ValueSet-har-activity-labels.html), [Geriatric Assessment Labels](ValueSet-geriatric-assessment-labels.html) and [ADL Labels](ValueSet-adl-labels.html), plus [Annotation Provenance](ValueSet-annotation-provenance.html)
+- **Test results:** [Functional Assessment Tests](ValueSet-functional-assessment-tests.html) (LOINC codes of the TUG and the 30-second chair stand test)
+- **Device identifiers:** [Device Identifier Type](CodeSystem-device-identifier-type-cs.html) (system identifier and MAC addresses, same codes as in the PHD IG)
 
 All profiles, extensions, value sets and code systems are listed on the [Artifacts](artifacts.html) page, together with the examples of each use case.
 
 ### Relation to the Personal Health Device IG
 
-The guide builds on the HL7 [Personal Health Device (PHD) Implementation Guide](https://hl7.org/fhir/uv/phd/), which covers devices that send individual measurements. For periodic data the PHD IG embeds the samples in `Observation.valueSampledData`. That works for short signals, but not for IMU recordings of several hours, so this guide references the raw data file instead and adds what the PHD IG does not cover: sensor placement and activity labels.
+The guide builds on the HL7 [Personal Health Device (PHD) Implementation Guide](https://hl7.org/fhir/uv/phd/), which covers devices that send individual measurements. For periodic data the PHD IG embeds the samples in `Observation.valueSampledData`. That works for short signals, but not for IMU recordings of several hours, so this guide references the raw data file instead, defines a minimum [raw data file format](raw-data-format.html), and adds what the PHD IG does not cover: sensor placement and activity labels.
+
+The PHD IG is based on FHIR R4, while this guide is based on FHIR R5. WHIR therefore reuses the concepts of the PHD IG (device model, gateway, device identifiers), but does not depend on its package or derive from its profiles. The three device identifier types it needs are defined locally with the same codes.
 
 ### Application to the use cases
 
@@ -98,9 +105,10 @@ The focus lies on the metadata of the different IMU sensors and their placement,
 
 * Each device is described with its sensors and device metrics (modality, unit, sampling rate).
 * The raw data of each sensor are recorded in a CSV file, referenced by a DocumentReference. A raw-data Observation per sensor modality links the file, the sensor and the body placement.
-* Annotation software labels time intervals of the recording with activities such as walking or the Timed Up and Go (TUG) test. Each label is an Activity Label Observation that records whether it was set by a human, an algorithm or both, and with which confidence.
-* A practitioner (assessor) supervises the recording session and checks the data collection and labeling, and is the performer of the label observations.
-* The recording session and its sub-sessions are represented as Encounters, so that a dataset can be split by session.
+* Annotation software labels time intervals of the recording with activities such as walking. Each label is an Activity Label Observation that records whether it was set by a human, an algorithm or both, and with which confidence. A Timed Up and Go (TUG) test done in the same session is recorded as a Functional Assessment Observation with the test time as value.
+* A practitioner (assessor) supervises the recording session and checks the data collection and labeling, and is the performer of the label observations she set or checked.
+* The recording session is an Encounter that all Observations of the session reference. Its identifier is the session identifier, so that a dataset can be split by session; each Observation has its own identifier.
+* One Provenance resource for the annotation run links all labels to the raw data, the annotation software and its version, and the assessor.
 
 <figure>
   <img src="use-case-1-instances.png" alt="Instance diagram for use case 1" style="width:100%;max-width:1110px"/>
@@ -111,7 +119,7 @@ The focus lies on the metadata of the different IMU sensors and their placement,
 
 Automated geriatric assessments are performed in the home setting. The subject wears a minimal set of sensors, for example one MMS sensor at the level of the third lumbar vertebra, and uses a mobile application that automatically generates the assessment results. The results are transmitted to the practitioner for further analysis, or uploaded directly to the electronic health record.
 
-* The raw accelerometer data are processed by the same annotation software pattern as in use case 1. Here the labels are two standardized geriatric mobility tests instead of an activity class: a Timed Up and Go result (LOINC 89423-8, a Quantity in seconds) and a 30-second chair stand test result (LOINC 66247-8, a Quantity in stands per 30 s).
+* The raw accelerometer data are processed by the same software pattern as in use case 1. Besides activity labels, the software computes two standardized geriatric mobility tests, recorded as Functional Assessment Observations: a Timed Up and Go result (LOINC 89423-8, a Quantity in seconds) and a 30-second chair stand test result (LOINC 66247-8, the number of stands in 30 s). A Provenance resource records the analysis run.
 * Both results are referenced as supporting information of a Geriatric Assessment Report (LOINC 100467-0, Geriatric medicine Outpatient Progress note) that the assessor interprets.
 * The report leads to a Condition with the geriatric conclusion (for example SNOMED CT 248279007, Frailty, with severity "severe"). The Condition refers back to the report as its evidence.
 * The recording is part of a home-health Encounter at the patient's home, based on a two-week Geriatric Exercise Care Plan. Each planned exercise (here from the Otago Exercise Programme) is a separate Geriatric Exercise Prescription that the care plan references.
@@ -128,3 +136,7 @@ If you use WHIR in your work, please cite the accompanying paper:
 > Ciortuz G, Wiedekopf J, Ulrich H, Hozhabr Pour H, Fudickar S. Leveraging Fast Healthcare Interoperability Resources (FHIR) for the Exchange of Wearable Inertial Sensor Data: Design and Development Study. 2026.
 
 A DOI will be added here after submission and publication of the preprint.
+
+To cite the implementation guide itself:
+
+> Ciortuz G. WHIR (Wearable Health Interoperable Recordings) Implementation Guide, version 0.1.0. Fudickar Lab, University of Lübeck; 2026. https://fudickar-lab.github.io/WHIR/

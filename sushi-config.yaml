@@ -14,12 +14,15 @@ releaseLabel: ci-build
 publisher:
   name: IMU Wearable R5 Publisher
 
-dependencies:
-  # PHD IG, defines the ContinuaDeviceIdentifiers code system
-  hl7.fhir.uv.phd: 2.0.0
+contact:
+  - name: Gabriela Ciortuz (Institute of Medical Informatics, University of Lübeck)
+    telecom:
+      - system: email
+        value: gabriela.ciortuz@uni-luebeck.de
 
 menu:
   Home: index.html
+  Raw data format: raw-data-format.html
   Artifacts: artifacts.html
 
 instanceOptions:
@@ -29,7 +32,7 @@ instanceOptions:
 groups:
   Profiles:
     name: Profiles
-    description: "Profiles for IMU devices, sensor placement, raw data, activity labels and the geriatric assessment."
+    description: "Profiles for IMU devices, sensor placement, raw data, activity labels, functional test results and the geriatric assessment."
     resources:
       - StructureDefinition/imu-sensor-placement
       - StructureDefinition/geriatric-exercise-care-plan
@@ -37,6 +40,7 @@ groups:
       - StructureDefinition/imu-sensor-device
       - StructureDefinition/geriatric-assessment-report
       - StructureDefinition/activity-label-observation
+      - StructureDefinition/functional-assessment-observation
       - StructureDefinition/long-raw-sensor-modality-observation
       - StructureDefinition/geriatric-exercise-prescription
   Extensions:
@@ -59,6 +63,7 @@ groups:
       - CodeSystem/annotation-provenance-cs
       - CodeSystem/sensor-modality-cs
       - CodeSystem/sensor-axis-cs
+      - CodeSystem/device-identifier-type-cs
       - ValueSet/imu-sensor-device-categories
       - ValueSet/imu-sensor-types
       - ValueSet/har-body-locations
@@ -69,6 +74,7 @@ groups:
       - ValueSet/geriatric-assessment-labels
       - ValueSet/adl-labels
       - ValueSet/activity-labels
+      - ValueSet/functional-assessment-tests
       - ValueSet/annotation-provenance
       - ValueSet/sensor-modality
       - ValueSet/sensor-axis
@@ -96,6 +102,8 @@ groups:
       - Device/uc1-001-samsung-accelerometer-sensor
       - DocumentReference/uc1-002-csv-raw-sensor-data-of-mms
       - DocumentReference/uc1-001-csv-raw-sensor-data-of-samsung
+      - Encounter/uc1-001-session-encounter
+      - Practitioner/uc1-001-assessor
       - Observation/uc1-all-observations
       - Observation/uc1-observation-accelerometer-raw-data-from-mms
       - Observation/uc1-observation-accelerometer-raw-data-from-samsung
@@ -104,6 +112,8 @@ groups:
       - Observation/uc1-004-walking-bout-2-observation-label-from-software
       - Observation/uc1-002-walking-observation-label-from-software
       - Patient/uc1-001-patient
+      - Provenance/uc1-001-provenance-annotation-run
+      - Bundle/uc1-bundle
   UseCase2Examples:
     name: Use case 2 examples
     description: "Automatic geriatric assessment at home: the recording session, TUG and 30-second chair stand results, progress note, frailty finding and Otago exercise programme."
@@ -142,3 +152,5 @@ groups:
       - Practitioner/uc2-987654321
       - Practitioner/uc2-123456732
       - ServiceRequest/uc2-001-otago-knee-extension-prescription
+      - Provenance/uc2-001-provenance-analysis-run
+      - Bundle/uc2-bundle

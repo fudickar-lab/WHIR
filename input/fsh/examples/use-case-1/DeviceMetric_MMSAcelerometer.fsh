@@ -13,4 +13,4 @@ Usage: #example
 * measurementFrequency.unit  = $unitsOfMeasure#Hz "Hertz"
 * calibration.type           = #unspecified
 * calibration.state          = #calibrated
-* calibration.time           = "2024-09-05T09:03:04-05:00"
+* calibration.time           = "2024-07-01T08:55:00+02:00" // calibrated before the session starts at 09:05

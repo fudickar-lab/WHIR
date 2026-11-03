@@ -3,7 +3,7 @@ Parent: DiagnosticReport
 Id: geriatric-assessment-report
 Title: "Geriatric Assessment Report"
 Description: """
-Report of an automatic geriatric assessment at home. It collects one or more standardised mobility test results, e.g. Timed Up and Go (TUG) or the 30-second chair stand test, recorded as ActivityLabelObservation instances, and the assessor's interpretation of them.
+Report of an automatic geriatric assessment at home. It collects one or more standardised mobility test results, e.g. Timed Up and Go (TUG) or the 30-second chair stand test, recorded as FunctionalAssessmentObservation instances, and the assessor's interpretation of them.
 
 The test results are referenced in supportingInfo and not in result, because they are recorded once during the session and can be used by more than one report.
 
@@ -20,7 +20,7 @@ conclusionCode is a plain CodeableConcept, since R5 DiagnosticReport has no elem
 
 // Mobility test results (TUG, 30-second chair stand, ...) the report interprets
 * supportingInfo 1..* MS
-* supportingInfo.reference only Reference(ActivityLabelObservation)
+* supportingInfo.reference only Reference(FunctionalAssessmentObservation)
 
 * resultsInterpreter 0..1 MS
 * resultsInterpreter only Reference(Practitioner)

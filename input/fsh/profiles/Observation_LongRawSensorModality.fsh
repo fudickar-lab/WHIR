@@ -6,7 +6,20 @@ Description: """
 Raw data of one sensor modality (single or multi-axis) recorded by a wearable sensor. It holds the same kind of data as PhdRtsaObservation in the HL7 Personal Health Device (PHD) IG, a periodic sample series, but instead of putting the samples in valueSampledData it references the CSV file with the raw data through derivedFrom.
 
 The sensor placement is given as a reference to an IMUSensorPlacement and the measurement characteristics as a reference to an IMUDeviceMetric in device. code gives the sensor modality. Each component maps one axis to its column in the raw data file.
+
+effectivePeriod runs from the timestamp of the first to the timestamp of the last sample in the file. All Observations of one recording session reference the same Encounter. The structure of the raw data file is described on the Raw data file format page.
 """
+
+* obeys whir-1
+
+* identifier MS
+
+// Recording session
+* encounter 1..1 MS
+
+// First and last sample of the raw data file
+* effective[x] only Period
+* effective[x] 1..1 MS
 
 // DeviceMetric describing the sensor
 * device 1..1 MS

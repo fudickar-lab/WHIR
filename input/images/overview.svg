@@ -5,14 +5,15 @@
 <text class="h" x="120.0" y="24" text-anchor="middle">DEVICE AND PLACEMENT</text>
 <text class="h" x="410.0" y="24" text-anchor="middle">RAW DATA</text>
 <text class="h" x="700.0" y="24" text-anchor="middle">LABELS</text>
-<text class="h" x="990.0" y="24" text-anchor="middle"></text>
+<text class="h" x="990.0" y="24" text-anchor="middle">TEST RESULTS</text>
 <rect x="585" y="354" width="510" height="285" rx="10" fill="#f7f3fc" stroke="#d8c8ef" stroke-dasharray="6 4"/><text class="h" x="1081" y="374" text-anchor="end">USE CASE 2: GERIATRIC ASSESSMENT</text>
 <path class="e" d="M320,79.0 H212"/><text class="l" x="265.0" y="71.0" text-anchor="middle">device</text>
 <path class="e" d="M410.0,214 V116"/><text class="l" x="416.0" y="168.0" text-anchor="start">device</text>
 <path class="e" d="M320,249.0 H212"/><text class="l" x="265.0" y="241.0" text-anchor="middle">bodyStructure</text>
 <path class="e" d="M370.0,284 V419.0 H212"/><text class="l" x="376.0" y="355.5" text-anchor="start">derivedFrom</text>
 <path class="e" d="M610,249.0 H502"/><text class="l" x="555.0" y="241.0" text-anchor="middle">derivedFrom</text>
-<path class="e" d="M700.0,384 V286"/><text class="l" x="706.0" y="338.0" text-anchor="start">supportingInfo</text>
+<path class="e" d="M790,400 H845 V249 H898"/><text class="l" x="851.0" y="330.0" text-anchor="start">supportingInfo</text>
+<path class="e" d="M990.0,214 V170 H455 V212"/><text class="l" x="720.0" y="163.0" text-anchor="middle">derivedFrom</text>
 <path class="e" d="M900,419.0 H792"/><text class="l" x="845.0" y="411.0" text-anchor="middle">evidence</text>
 <path class="e" d="M990.0,554 V456"/><text class="l" x="996.0" y="508.0" text-anchor="start">addresses</text>
 <path class="e" d="M900,589.0 H792"/><text class="l" x="845.0" y="581.0" text-anchor="middle">activity</text>
@@ -36,6 +37,10 @@
 <text class="t" x="700.0" y="240" text-anchor="middle">Activity Label</text>
 <text class="t" x="700.0" y="257" text-anchor="middle">Observation</text>
 <text class="b" x="700.0" y="274" text-anchor="middle">Observation</text>
+<rect x="900" y="214" width="180" height="70" rx="6" fill="#dcebfa" stroke="#3b7dd8"/>
+<text class="t" x="990.0" y="240" text-anchor="middle">Functional Assessment</text>
+<text class="t" x="990.0" y="257" text-anchor="middle">Observation</text>
+<text class="b" x="990.0" y="274" text-anchor="middle">Observation</text>
 <rect x="610" y="384" width="180" height="70" rx="6" fill="#ece3f7" stroke="#7e57c2"/>
 <text class="t" x="700.0" y="410" text-anchor="middle">Geriatric Assessment</text>
 <text class="t" x="700.0" y="427" text-anchor="middle">Report</text>
@@ -54,7 +59,7 @@
 <g transform="translate(0,654)">
 <rect x="30" y="0" width="14" height="14" rx="3" fill="#fdf1d2" stroke="#d9a400"/><text class="b" x="50" y="11">Device metadata</text>
 <rect x="185" y="0" width="14" height="14" rx="3" fill="#dcf1e2" stroke="#3c9a5f"/><text class="b" x="205" y="11">Recorded data</text>
-<rect x="326" y="0" width="14" height="14" rx="3" fill="#dcebfa" stroke="#3b7dd8"/><text class="b" x="346" y="11">Activity labels</text>
+<rect x="326" y="0" width="14" height="14" rx="3" fill="#dcebfa" stroke="#3b7dd8"/><text class="b" x="346" y="11">Labels, results</text>
 <rect x="481" y="0" width="14" height="14" rx="3" fill="#ece3f7" stroke="#7e57c2"/><text class="b" x="501" y="11">Geriatric assessment</text>
 <rect x="671" y="0" width="14" height="14" rx="3" fill="#ffffff" stroke="#9aa5b1" stroke-dasharray="3 2"/><text class="b" x="691" y="11">Base resource</text>
 <text class="b" x="30" y="40">Arrows point from the referencing resource to the referenced one. The Patient (subject) is left out.</text></g></svg>

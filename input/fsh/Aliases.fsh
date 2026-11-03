@@ -4,7 +4,6 @@ Alias: $sct                         = http://snomed.info/sct
 Alias: $unitsOfMeasure              = http://unitsofmeasure.org
 
 // Device
-Alias: $ContinuaDeviceIdentifiers   = http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers // defined in the PHD IG (hl7.fhir.uv.phd)
 Alias: $AvailabilityStatus          = http://hl7.org/fhir/device-availability-status
 Alias: $hl7VSYesNoIndicator         = http://terminology.hl7.org/CodeSystem/v2-0136
 Alias: $deviceCategory              = http://hl7.org/fhir/device-category
@@ -37,3 +36,7 @@ Alias: $condition-clinical          = http://terminology.hl7.org/CodeSystem/cond
 Alias: $condition-ver-status        = http://terminology.hl7.org/CodeSystem/condition-ver-status
 Alias: $condition-category          = http://terminology.hl7.org/CodeSystem/condition-category
 Alias: $local                       = http://example.org/local
+
+// Provenance
+Alias: $provenance-participant-type = http://terminology.hl7.org/CodeSystem/provenance-participant-type
+Alias: $v3-DataOperation            = http://terminology.hl7.org/CodeSystem/v3-DataOperation

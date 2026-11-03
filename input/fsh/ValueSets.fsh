@@ -121,12 +121,18 @@ Description: "Activity labels used as ground truth for machine learning in the g
 ValueSet: GeriatricAssessmentLabels
 Id: geriatric-assessment-labels
 Title: "Geriatric Assessment Labels Value Set"
-Description: "Labels for structured assessments, rehabilitation exercises, falls and postural transitions in the automatic geriatric assessment use case (Otago, shoulder rehabilitation, TUG, sit-to-stand, simulated falls, freezing of gait). Contains the LOINC codes for the TUG and the 30-second chair stand test, walking from HARActivityLabelsCS (part of the Otago programme) and all codes from GeriatricAssessmentLabelsCS. Everyday household activities are in the ADLLabels value set. GeriatricExercisePrescription binds to this value set so that only actual exercises can be prescribed."
+Description: "Labels for structured assessments, rehabilitation exercises, falls and postural transitions in the automatic geriatric assessment use case (Otago, shoulder rehabilitation, TUG, sit-to-stand, simulated falls, freezing of gait). Contains walking from HARActivityLabelsCS (part of the Otago programme) and all codes from GeriatricAssessmentLabelsCS. The results of the TUG and the 30-second chair stand test are not labels and are in the FunctionalAssessmentTests value set. Everyday household activities are in the ADLLabels value set. GeriatricExercisePrescription binds to this value set so that only actual exercises can be prescribed."
+* ^experimental = false
+* HARActivityLabelsCS#walking "Walking" // Otago walking plan
+* include codes from system GeriatricAssessmentLabelsCS
+
+ValueSet: FunctionalAssessmentTests
+Id: functional-assessment-tests
+Title: "Functional Assessment Tests Value Set"
+Description: "Standardised functional tests whose results can be computed from wearable IMU data. Bound to FunctionalAssessmentObservation.code."
 * ^experimental = false
 * $loinc#89423-8 "Time to rise from chair, walk 10 feet and back, and return to sitting [TUG]"
 * $loinc#66247-8 "Sit to stand frequency in 30 seconds"
-* HARActivityLabelsCS#walking "Walking" // Otago walking plan
-* include codes from system GeriatricAssessmentLabelsCS
 
 ValueSet: ADLLabels
 Id: adl-labels

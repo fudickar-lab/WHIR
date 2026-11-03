@@ -4,7 +4,7 @@ Title: "Huawei Phone for Annotation (UC1)"
 Description: "Huawei phone running the annotation software, used by the assessor to label the data in real time during the recording."
 Usage: #example
 * id                               = "uc1-005-huawei-phone"
-* identifier[0].type               = $ContinuaDeviceIdentifiers#SYSID "IEEE 11073 System Identifier"
+* identifier[0].type               = DeviceIdentifierTypeCS#SYSID "IEEE 11073 System Identifier"
 * identifier[=].system             = "urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"
 * identifier[=].value              = "02-02-02-02-02-02-02-02"
 * manufacturer                     = "Huawei"

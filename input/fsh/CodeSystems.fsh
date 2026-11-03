@@ -87,7 +87,7 @@ Description: "General human activity recognition (HAR) labels for locomotion, po
 CodeSystem: GeriatricAssessmentLabelsCS
 Id: geriatric-assessment-labels-cs
 Title: "Geriatric Assessment Labels Code System"
-Description: "Labels for structured clinical assessments, rehabilitation exercises, falls and postural transitions in the automatic geriatric assessment use case: Otago Exercise Programme movements (Shang 2024), shoulder rehabilitation exercises (Lee 2024), freezing of gait (Daphnet), simulated falls (MobiAct, UniMiB SHAR) and postural transitions (HAPT/SBHAR, UniMiB SHAR, MobiAct). Only labels that result from a prescribed test or exercise are included here; everyday household activities are in ADLLabelsCS. The LOINC codes for the TUG and 30-second chair stand test and the walking code from HARActivityLabelsCS are included directly in the GeriatricAssessmentLabels value set and are not repeated here."
+Description: "Labels for structured clinical assessments, rehabilitation exercises, falls and postural transitions in the automatic geriatric assessment use case: Otago Exercise Programme movements (Shang 2024), shoulder rehabilitation exercises (Lee 2024), freezing of gait (Daphnet), simulated falls (MobiAct, UniMiB SHAR) and postural transitions (HAPT/SBHAR, UniMiB SHAR, MobiAct). Only labels that result from a prescribed test or exercise are included here; everyday household activities are in ADLLabelsCS. The walking code from HARActivityLabelsCS is included directly in the GeriatricAssessmentLabels value set and is not repeated here. Test results such as the TUG and the 30-second chair stand test are not labels; their LOINC codes are in the FunctionalAssessmentTests value set."
 * ^experimental = false
 * #rest-position "Rest / no movement" "Baseline resting condition with no active movement, used as a reference class rather than a rehabilitation exercise."
 * #sit-to-stand-transition "Sit-to-stand transition" "Rising from a seated to a standing position."
@@ -203,3 +203,12 @@ Description: "Axis of a multi-axis IMU signal, as given by the column of the raw
 * #y "Y axis" "Y axis of the sensor coordinate system."
 * #z "Z axis" "Z axis of the sensor coordinate system."
 * #magnitude "Magnitude" "Magnitude (Euclidean norm) over all axes."
+
+CodeSystem: DeviceIdentifierTypeCS
+Id: device-identifier-type-cs
+Title: "Device Identifier Type Code System"
+Description: "Types of device identifiers for wearable sensor devices and gateways. The codes and meanings are the same as in the ContinuaDeviceIdentifiers code system of the HL7 Personal Health Device (PHD) IG. That code system is only published in the PHD IG, which is based on FHIR R4, so this R5 guide defines the three codes it uses locally instead of depending on the R4 package."
+* ^experimental = false
+* #SYSID "IEEE 11073 System Identifier" "EUI-64 system identifier of a device as defined in ISO/IEEE 11073-20601 (same as ContinuaDeviceIdentifiers#SYSID in the PHD IG)."
+* #BTMAC "Bluetooth MAC Address" "EUI-48 Bluetooth MAC address of a device (same as ContinuaDeviceIdentifiers#BTMAC in the PHD IG)."
+* #ETHMAC "Ethernet MAC Address" "EUI-48 Ethernet MAC address of a device (same as ContinuaDeviceIdentifiers#ETHMAC in the PHD IG)."

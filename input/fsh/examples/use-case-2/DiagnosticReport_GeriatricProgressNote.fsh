@@ -8,8 +8,8 @@ Usage: #example
 * code                        = $loinc#100467-0 "Geriatric medicine Outpatient Progress note"
 * subject                     = Reference(uc2-001-patient)
 * encounter                   = Reference(uc2-001-session-encounter) // the home assessment session the note summarises
-* effectiveDateTime           = "2024-07-01T15:35:00+01:00" // shortly after the session ends, when the results are reviewed
-* issued                      = "2024-07-01T16:00:00+01:00"
+* effectiveDateTime           = "2024-07-01T15:35:00+02:00" // shortly after the session ends, when the results are reviewed
+* issued                      = "2024-07-01T16:00:00+02:00"
 * supportingInfo[0].type      = $observType#RSLT "Result"
 * supportingInfo[=].reference = Reference(uc2-001-tug-result-of-software-observation)
 * supportingInfo[+].type      = $observType#RSLT "Result"

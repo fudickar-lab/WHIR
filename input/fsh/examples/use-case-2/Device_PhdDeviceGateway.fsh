@@ -4,13 +4,13 @@ Title: "PHD Device Gateway (UC2)"
 Description: "Device gateway (PHG), the computer that all data is sent to."
 Usage: #example
 * id                                       = "uc2-003-all-devices"
-* identifier[0].type                       = $ContinuaDeviceIdentifiers#SYSID
+* identifier[0].type                       = DeviceIdentifierTypeCS#SYSID
 * identifier[=].system                     = "urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"
 * identifier[=].value                      = "ec-de-3d-4e-58-53-2d-31"
-* identifier[+].type                       = $ContinuaDeviceIdentifiers#BTMAC
+* identifier[+].type                       = DeviceIdentifierTypeCS#BTMAC
 * identifier[=].system                     = "http://hl7.org/fhir/sid/eui-48/bluetooth"
 * identifier[=].value                      = "3d-4e-58-53-2d-31"
-* identifier[+].type                       = $ContinuaDeviceIdentifiers#ETHMAC
+* identifier[+].type                       = DeviceIdentifierTypeCS#ETHMAC
 * identifier[=].system                     = "http://hl7.org/fhir/sid/eui-48/ethernet"
 * identifier[=].value                      = "3d-4e-58-53-2d-35"
 * displayName                              = "Personal computer where the data from all devices is collected"

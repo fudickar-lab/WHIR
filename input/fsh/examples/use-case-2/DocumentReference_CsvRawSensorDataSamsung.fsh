@@ -11,4 +11,4 @@ Usage: #example
 * content.attachment.url         = "https://example.org/whir/raw-data/session-2024-07-01-home-001_samsung_accelerometer_100Hz.csv"
 * content.attachment.title       = "session-2024-07-01-home-001_samsung_accelerometer_100Hz.csv"
 * content.attachment.creation    = "2024-07-01T09:10:10+02:00"
-* content.profile.valueUri       = "https://fudickar-lab.github.io/WHIR/raw-data-format.html" // file follows the WHIR raw data file format
+* content.profile.valueCoding    = RawDataFileFormatCS#whir-csv "WHIR minimal CSV format" // file follows the WHIR raw data file format

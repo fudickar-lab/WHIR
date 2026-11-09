@@ -12,7 +12,9 @@ copyrightYear: 2024+
 releaseLabel: ci-build
 
 publisher:
-  name: IMU Wearable R5 Publisher
+  name: Fudickar Lab, Institute of Medical Informatics, University of Lübeck
+  url: https://github.com/fudickar-lab/WHIR
+  email: gabriela.ciortuz@uni-luebeck.de
 
 contact:
   - name: Gabriela Ciortuz (Institute of Medical Informatics, University of Lübeck)
@@ -64,6 +66,7 @@ groups:
       - CodeSystem/sensor-modality-cs
       - CodeSystem/sensor-axis-cs
       - CodeSystem/device-identifier-type-cs
+      - CodeSystem/raw-data-file-format-cs
       - ValueSet/imu-sensor-device-categories
       - ValueSet/imu-sensor-types
       - ValueSet/har-body-locations

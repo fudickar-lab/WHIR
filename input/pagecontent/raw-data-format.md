@@ -25,7 +25,7 @@ Note that the app writes the local wall-clock time in the second column but labe
 
 ### DocumentReference
 
-The DocumentReference for a raw data file SHALL give `content.attachment.contentType` (`text/csv`) and `content.attachment.url`, and SHOULD give `title` (the file name), `creation` and `hash` (SHA-1, base64), so that a receiver can check that it has the right file. `content.profile.valueUri` SHALL point to this page (`https://fudickar-lab.github.io/WHIR/raw-data-format.html`) to state that the file follows these rules.
+The DocumentReference for a raw data file SHALL give `content.attachment.contentType` (`text/csv`) and `content.attachment.url`, and SHOULD give `title` (the file name), `creation` and `hash` (SHA-1, base64), so that a receiver can check that it has the right file. `content.profile.valueCoding` SHALL be the code `whir-csv` from the [Raw Data File Format](CodeSystem-raw-data-file-format-cs.html) code system, to state that the file follows these rules.
 
 ### Time alignment
 

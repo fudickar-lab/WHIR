@@ -84,6 +84,7 @@ SNOMED CT, LOINC, UCUM and ISO/IEEE 11073 codes are used where a suitable concep
 - **Activity labels:** [Activity Labels](ValueSet-activity-labels.html), combining [HAR Activity Labels](ValueSet-har-activity-labels.html), [Geriatric Assessment Labels](ValueSet-geriatric-assessment-labels.html) and [ADL Labels](ValueSet-adl-labels.html), plus [Annotation Provenance](ValueSet-annotation-provenance.html)
 - **Test results:** [Functional Assessment Tests](ValueSet-functional-assessment-tests.html) (LOINC codes of the TUG and the 30-second chair stand test)
 - **Device identifiers:** [Device Identifier Type](CodeSystem-device-identifier-type-cs.html) (system identifier and MAC addresses, same codes as in the PHD IG)
+- **Raw data files:** [Raw Data File Format](CodeSystem-raw-data-file-format-cs.html) (format of the referenced raw data file, see [Raw data format](raw-data-format.html))
 
 All profiles, extensions, value sets and code systems are listed on the [Artifacts](artifacts.html) page, together with the examples of each use case.
 

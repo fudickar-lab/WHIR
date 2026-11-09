@@ -212,3 +212,10 @@ Description: "Types of device identifiers for wearable sensor devices and gatewa
 * #SYSID "IEEE 11073 System Identifier" "EUI-64 system identifier of a device as defined in ISO/IEEE 11073-20601 (same as ContinuaDeviceIdentifiers#SYSID in the PHD IG)."
 * #BTMAC "Bluetooth MAC Address" "EUI-48 Bluetooth MAC address of a device (same as ContinuaDeviceIdentifiers#BTMAC in the PHD IG)."
 * #ETHMAC "Ethernet MAC Address" "EUI-48 Ethernet MAC address of a device (same as ContinuaDeviceIdentifiers#ETHMAC in the PHD IG)."
+
+CodeSystem: RawDataFileFormatCS
+Id: raw-data-file-format-cs
+Title: "Raw Data File Format Code System"
+Description: "Formats of raw sensor data files referenced from WHIR. Used in DocumentReference.content.profile to state which format a raw data file follows. The formats are specified on the [Raw data format](raw-data-format.html) page."
+* ^experimental = false
+* #whir-csv "WHIR minimal CSV format" "UTF-8 CSV file with one header row, the Unix epoch timestamp in milliseconds (UTC) in the first column, and one column per axis, named as in Observation.component and given in the unit of the IMU Device Metric. See the Raw data format page of this guide."

@@ -15,4 +15,4 @@ Usage: #example
 * content.attachment.title       = "010_MetaWear_2024-07-01T09.10.09.797_E84C1E353B9C_Accelerometer_50.000Hz_1.7.2.csv"
 * content.attachment.creation    = "2024-07-01T09:10:09+02:00"
 * content.attachment.hash        = "uZh8Ahp81vIzq3M/mh1BHcJh4N8=" // SHA-1, base64
-* content.profile.valueUri       = "https://fudickar-lab.github.io/WHIR/raw-data-format.html" // file follows the WHIR raw data file format
+* content.profile.valueCoding    = RawDataFileFormatCS#whir-csv "WHIR minimal CSV format" // file follows the WHIR raw data file format

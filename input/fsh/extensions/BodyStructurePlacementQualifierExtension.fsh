@@ -5,4 +5,4 @@ Description: "Says which side is meant when a dataset or protocol gives a sensor
 * ^context.type = #element
 * ^context.expression = "BodyStructure"
 * value[x] only CodeableConcept
-* valueCodeableConcept from PlacementQualifier (required)
+* valueCodeableConcept from PlacementQualifier (extensible)

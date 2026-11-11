@@ -9,4 +9,4 @@ Description: "How the sensor, or the device housing it, was fixed to the body at
 * ^context.type = #element
 * ^context.expression = "BodyStructure"
 * value[x] only CodeableConcept
-* valueCodeableConcept from AttachmentMethod (required)
+* valueCodeableConcept from AttachmentMethod (extensible)

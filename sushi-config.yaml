@@ -9,6 +9,7 @@ status: draft
 version: 0.1.0
 fhirVersion: 5.0.0
 copyrightYear: 2024+
+license: CC-BY-4.0
 releaseLabel: ci-build
 
 publisher:

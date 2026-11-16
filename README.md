@@ -12,7 +12,7 @@ It describes IMU recordings from the device and its sensors, through the raw dat
 ```
 input/fsh/
   Aliases.fsh, CodeSystems.fsh, ValueSets.fsh
-  profiles/                 8 profiles
+  profiles/                 9 profiles
   extensions/               4 extensions
   examples/use-case-1/      examples for use case 1, ids start with "uc1-"
   examples/use-case-2/      examples for use case 2, ids start with "uc2-"

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use WHIR, please cite it using the metadata from this file."
+type: software
+title: "WHIR (Wearable Health Interoperable Recordings) Implementation Guide"
+version: 0.1.0
+abstract: >-
+  FHIR R5 implementation guide for wearable inertial measurement unit (IMU)
+  recordings, from device and sensor metadata through raw data to activity
+  labels, with use cases for machine learning and automatic geriatric
+  assessment at home.
+authors:
+  - given-names: Gabriela
+    family-names: Ciortuz
+    affiliation: "Institute of Medical Informatics, University of Luebeck, Lübeck, Germany"
+    orcid: "https://orcid.org/0000-0001-9443-7825"
+    email: gabriela.ciortuz@uni-luebeck.de
+repository-code: "https://github.com/fudickar-lab/WHIR"
+url: "https://fudickar-lab.github.io/WHIR/"
+license: CC-BY-4.0
+keywords:
+  - HL7 FHIR
+  - FHIR R5
+  - implementation guide
+  - wearable sensors
+  - inertial measurement unit
+  - human activity recognition
+  - geriatric assessment

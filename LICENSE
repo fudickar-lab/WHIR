@@ -1,0 +1,19 @@
+WHIR (Wearable Health Interoperable Recordings) Implementation Guide
+Copyright (c) 2024-2026 Gabriela Ciortuz, University of Lübeck
+
+This work is licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0).
+
+You are free to share (copy and redistribute the material in any medium or
+format) and adapt (remix, transform, and build upon the material) for any
+purpose, even commercially, provided that you give appropriate credit,
+provide a link to the license, and indicate if changes were made.
+
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:         https://creativecommons.org/licenses/by/4.0/
+
+SPDX-License-Identifier: CC-BY-4.0
+
+This implementation guide references external terminologies (SNOMED CT,
+LOINC, ISO/IEEE 11073) that are subject to their own licenses and are not
+covered by this license.
